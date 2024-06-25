@@ -3,8 +3,8 @@
 #include<time.h>
 #define SIZE 12
 
-void printArray(unsigned int* array);
-void bubbleSort(unsigned int* array);
+void PrintArray(unsigned int* array);
+void BubbleSort(unsigned int* array);
 
 int main()
 {
@@ -16,18 +16,18 @@ int main()
         array[i] = 1+rand()%100;
     }
 
-    printf("%s", "Dizinin Siralanmamis Hali\n");
-    printArray(array);
+    printf("%s", "Unordered Array\n");
+    PrintArray(array);
 
-    printf("%s", "\nDizinin Siralanmis Hali\n");
-    bubbleSort(array);
-    printArray(array);
+    printf("%s", "\n\nOrdered Array\n");
+    BubbleSort(array);
+    PrintArray(array);
     free(array);
 
     return 0;
 }
 
-void printArray(unsigned int* array)
+void PrintArray(unsigned int* array)
 {
     size_t i;
     for(i = 0; i < SIZE; ++i)
@@ -36,12 +36,12 @@ void printArray(unsigned int* array)
     }
 }
 
-void bubbleSort(unsigned int* array)
+void BubbleSort(unsigned int* array)
 {
     unsigned int hold;
-    for(size_t pass = 0 ; pass < SIZE; ++pass)
+    for(size_t i = 0 ; i < SIZE; ++i)
     {
-        for(size_t j = 0; j < SIZE - pass; ++j)
+        for(size_t j = 0; j < SIZE - i; ++j)
         {
             if(array[j] > array[j+1])
             {
